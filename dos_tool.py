@@ -103,7 +103,7 @@ class SynFlood:
 
 
 def main():
-    parser = argparse.ArgumentParser(description='DoS/DDoS Attack Tool (Educational)')
+    parser = argparse.ArgumentParser(description='DoS/DDoS Attack Tool')
     parser.add_argument('attack_type', choices=['http', 'syn'], help='Attack type (http or syn)')
     parser.add_argument('-t', '--target', required=True, help='Target: IP or domain')
     parser.add_argument('-p', '--port', type=int, required=True, help='Target port')
@@ -121,3 +121,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
